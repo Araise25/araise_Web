@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Rushi Chaganti",
     "role": "Founder, Chief of Technical Operations, Araise AI.",
-    "avatar": "/rushi.jpg?height=200&width=200",
+    "avatar": "rushi.jpg",
     "bio": "Passionate about AI research and finding ways to make cutting-edge models more efficient and ethical.",
     "skills": ["Python", "React", "Next.js", "TypeScript"],
     "projects": [
@@ -30,7 +30,7 @@
     "id": 2,
     "name": "Ravi Shankar Krishna",
     "role": "Chief Security Officer, Araise AI",
-    "avatar": "/ravishankar.jpg?height=200&width=200",
+    "avatar": "ravishankar.jpg",
     "bio": "A guy who loves to code and build cool stuff with AI. Also loves to play video games",
     "skills": ["Networking", "Computer Science", "Python", "Cyber Security"],
     "projects": [
@@ -57,7 +57,7 @@
     "id": 3,
     "name": "Dheeraj Chinni",
     "role": "Lead - AI Operations, Araise AI.",
-    "avatar": "/dheeru.jpeg?height=200&width=200",
+    "avatar": "dheeru.jpeg",
     "bio": "CS Student, Specialised in building AI Applications.",
     "skills": ["Python", "C++", "ML Operations", "Deep Learning"],
     "projects": [
@@ -84,7 +84,7 @@
     "id": 4,
     "name": "Shiva Karthik Gandikota",
     "role": "Lead - Developer Operations",
-    "avatar": "/shivakarthik.jpg?height=200&width=200",
+    "avatar": "shivakarthik.jpg",
     "bio": "CS Student, Specialised in building practical applications.",
     "skills": ["Python", "Docker", "AWS", "API Design"],
     "projects": [
@@ -102,10 +102,9 @@
     "links": {
       "github": "https://github.com/karthik6214",
       "x": "https://x.com/ShivaKarthik_08?t=35De-KccgjG7D8PPj-OZqg&s=08",
-      "linkedin": "https://www.linkedin.com/in/gandikota-shiva-karthik-0ab237231/ ",
+      "linkedin": "https://www.linkedin.com/in/gandikota-shiva-karthik-0ab237231/",
       "website": "https://shivakarthik.dev"
     },
     "email": "shiva@araise.ai"
   }
 ]
-
