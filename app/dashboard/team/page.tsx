@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
@@ -14,6 +15,9 @@ import { getTeamMembers, type TeamMember } from "@/lib/data"
 export default function TeamPage() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
   const teamMembers = getTeamMembers()
+
+  // Helper function to get the correct image path
+  const getImagePath = (avatar: string) => `/team/${avatar}`
 
   return (
     <div className="space-y-8">
@@ -31,13 +35,24 @@ export default function TeamPage() {
           >
             <CardHeader className="pb-2 text-center">
               <Avatar className="w-24 h-24 mx-auto mb-2">
-                <AvatarImage src={member.avatar} alt={member.name} />
-                <AvatarFallback className="bg-primary/20 text-primary">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </AvatarFallback>
+                {member.avatar ? (
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={getImagePath(member.avatar)}
+                      alt={member.name}
+                      fill
+                      className="object-cover rounded-full"
+                      sizes="(max-width: 96px) 100vw, 96px"
+                    />
+                  </div>
+                ) : (
+                  <AvatarFallback className="bg-primary/20 text-primary">
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                )}
               </Avatar>
               <CardTitle className="text-primary">{member.name}</CardTitle>
               <CardDescription>{member.role}</CardDescription>
@@ -115,13 +130,24 @@ export default function TeamPage() {
             <div className="flex flex-col md:flex-row gap-6 py-4">
               <div className="flex flex-col items-center space-y-4">
                 <Avatar className="w-32 h-32">
-                  <AvatarImage src={selectedMember.avatar} alt={selectedMember.name} />
-                  <AvatarFallback className="bg-primary/20 text-primary text-xl">
-                    {selectedMember.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
+                  {selectedMember.avatar ? (
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={getImagePath(selectedMember.avatar)}
+                        alt={selectedMember.name}
+                        fill
+                        className="object-cover rounded-full"
+                        sizes="(max-width: 128px) 100vw, 128px"
+                      />
+                    </div>
+                  ) : (
+                    <AvatarFallback className="bg-primary/20 text-primary text-xl">
+                      {selectedMember.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                  )}
                 </Avatar>
 
                 <div className="flex space-x-2">

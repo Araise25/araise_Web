@@ -1,4 +1,4 @@
-"\"use client"
+"use client"
 
 import type React from "react"
 
@@ -10,22 +10,27 @@ import {
   HelpCircle,
   FolderGit,
   Mail,
-  Users,
-  Palette,
   Github,
   GitBranch,
   GitPullRequest,
   Bug,
   Upload,
-  Sliders,
   ExternalLink,
   MessageSquare,
-  Linkedin,
-  BookOpen,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { themes, initializeTheme, applyTheme, getCurrentTheme } from "@/lib/theme-utils"
-import { getProjects, getTeamMembers, getBlogPosts, getContactInfo } from "@/lib/data"
+import { getProjects, getContactInfo } from "@/lib/data"
+
+// First, add this type definition at the top of your file
+type Project = {
+  id: string
+  title: string
+  longDescription: string
+  githubUrl: string
+  features?: string[]  // Make it optional with ?
+  // Add other project properties as needed
+}
 
 // ================ COMMAND OUTPUT ================
 
@@ -231,39 +236,6 @@ const HelpSection = ({ executeCommand }: HelpSectionProps) => {
 
         <div
           className="flex items-start space-x-2 p-2 rounded hover:bg-primary/10 cursor-pointer"
-          onClick={() => handleCommandClick("team")}
-        >
-          <Users className="w-5 h-5 text-blue-400 mt-0.5" />
-          <div>
-            <div className="font-bold">team</div>
-            <div className="text-gray-400 text-sm">Show team member details</div>
-          </div>
-        </div>
-
-        <div
-          className="flex items-start space-x-2 p-2 rounded hover:bg-primary/10 cursor-pointer"
-          onClick={() => handleCommandClick("colors")}
-        >
-          <Palette className="w-5 h-5 text-blue-400 mt-0.5" />
-          <div>
-            <div className="font-bold">colors</div>
-            <div className="text-gray-400 text-sm">Customize terminal theme</div>
-          </div>
-        </div>
-
-        <div
-          className="flex items-start space-x-2 p-2 rounded hover:bg-primary/10 cursor-pointer"
-          onClick={() => handleCommandClick("blog")}
-        >
-          <BookOpen className="w-5 h-5 text-blue-400 mt-0.5" />
-          <div>
-            <div className="font-bold">blog</div>
-            <div className="text-gray-400 text-sm">Read our latest blog posts</div>
-          </div>
-        </div>
-
-        <div
-          className="flex items-start space-x-2 p-2 rounded hover:bg-primary/10 cursor-pointer"
           onClick={() => handleCommandClick("dashboard")}
         >
           <Terminal className="w-5 h-5 text-red-400 mt-0.5" />
@@ -448,64 +420,11 @@ const ContactSection = () => {
   )
 }
 
-// ================ COLORS SECTION ================
-
-type ColorsProps = {
-  currentTheme: string
-  setTheme: (theme: string) => void
-  backgroundOpacity: number
-}
-
-const ColorsSection = ({ currentTheme, setTheme, backgroundOpacity }: ColorsProps) => {
-  const [opacity, setOpacity] = useState(backgroundOpacity)
-
-  const handleOpacityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newOpacity = Number.parseFloat(e.target.value)
-    setOpacity(newOpacity)
-    localStorage.setItem("arAIse-background-opacity", newOpacity.toString())
-    document.body.style.opacity = newOpacity.toString()
-    window.dispatchEvent(new Event("background-changed"))
-  }
-
-  return (
-    <div className="space-y-4">
-      <div className="text-yellow-400 text-lg font-bold mb-2">Customize Terminal</div>
-
-      <div className="bg-gray-800/50 p-4 rounded">
-        <ThemeSwitcher currentTheme={currentTheme} setTheme={setTheme} />
-
-        <div className="mt-6">
-          <div className="font-bold mb-2 flex items-center space-x-2">
-            <Sliders className="w-4 h-4" />
-            <span>Background Opacity: {Math.round(opacity * 100)}%</span>
-          </div>
-          <input
-            type="range"
-            min="0"
-            max="1"
-            step="0.05"
-            value={opacity}
-            onChange={handleOpacityChange}
-            className="w-full"
-          />
-        </div>
-
-        <div className="mt-4 text-gray-300 text-sm">
-          <p>
-            To customize your background wallpaper, use the <code className="text-yellow-400">dashboard</code> command
-            and navigate to the Appearance section. Any changes made to the opacity here will sync with the dashboard
-            and vice versa.
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 // ================ PROJECTS SECTION ================
 
 const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const projects = getProjects()
 
   return (
@@ -538,7 +457,13 @@ const ProjectsSection = () => {
 
           <div>
             <div className="text-gray-300 mb-2">{selectedProject.longDescription}</div>
-
+            {selectedProject.features && (
+              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                {selectedProject.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
+            )}
             <div className="space-y-2 mt-4">
               <div className="flex items-center space-x-2">
                 <Github className="w-4 h-4 text-white" />
@@ -552,32 +477,6 @@ const ProjectsSection = () => {
                   <ExternalLink className="w-3 h-3 ml-1" />
                 </a>
               </div>
-
-              <div className="flex items-center space-x-2">
-                <ExternalLink className="w-4 h-4 text-white" />
-                <a
-                  href={selectedProject.videoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline flex items-center"
-                >
-                  Live Demo
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <FolderGit className="w-4 h-4 text-white" />
-                <a
-                  href={selectedProject.docsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline flex items-center"
-                >
-                  Documentation
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -588,219 +487,13 @@ const ProjectsSection = () => {
 
 // ================ TEAM SECTION ================
 
-const TeamSection = () => {
-  const [selectedMember, setSelectedMember] = useState(null)
-  const teamMembers = getTeamMembers()
-
-  return (
-    <div>
-      {!selectedMember ? (
-        <div className="space-y-4">
-          <div className="text-yellow-400 text-lg font-bold mb-2">Team Members</div>
-          <div className="space-y-2">
-            {teamMembers.map((member) => (
-              <div
-                key={member.id}
-                className="flex items-center space-x-3 p-2 rounded hover:bg-gray-800 cursor-pointer"
-                onClick={() => setSelectedMember(member)}
-              >
-                <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
-                  <img
-                    src={member.avatar || "/placeholder.svg"}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="font-bold">{member.name}</div>
-                  <div className="text-gray-400 text-sm">{member.role}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-gray-400 text-sm mt-2">Click on a team member to view their profile.</div>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <div className="text-yellow-400 text-lg font-bold">{selectedMember.name}</div>
-            <button className="text-gray-400 hover:text-white text-sm" onClick={() => setSelectedMember(null)}>
-              Back to team
-            </button>
-          </div>
-
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="w-full md:w-1/3">
-              <div className="rounded-md overflow-hidden bg-gray-800">
-                <img
-                  src={selectedMember.avatar || "/placeholder.svg"}
-                  alt={selectedMember.name}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-
-            <div className="w-full md:w-2/3 space-y-4">
-              <div>
-                <div className="text-xl font-bold">{selectedMember.name}</div>
-                <div className="text-blue-400">{selectedMember.role}</div>
-              </div>
-
-              <div className="text-gray-300">{selectedMember.bio}</div>
-
-              <div className="space-y-2 pt-2">
-                <div className="flex items-center space-x-2">
-                  <Github className="w-4 h-4 text-white" />
-                  <a
-                    href={selectedMember.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline flex items-center"
-                  >
-                    GitHub Profile
-                    <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Linkedin className="w-4 h-4 text-white" />
-                  <a
-                    href={selectedMember.links.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline flex items-center"
-                  >
-                    LinkedIn
-                    <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <ExternalLink className="w-4 h-4 text-white" />
-                  <a
-                    href={selectedMember.links.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline flex items-center"
-                  >
-                    Personal Website
-                    <ExternalLink className="w-3 h-3 ml-1" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
 // ================ BLOG SECTION ================
-
-const BlogSection = () => {
-  const [selectedPost, setSelectedPost] = useState(null)
-  const blogPosts = getBlogPosts()
-
-  return (
-    <div>
-      {!selectedPost ? (
-        <div className="space-y-4">
-          <div className="text-yellow-400 text-lg font-bold mb-2">Latest Blog Posts</div>
-          <div className="space-y-4">
-            {blogPosts.map((post) => (
-              <div
-                key={post.id}
-                className="p-4 rounded bg-gray-800/50 hover:bg-gray-700/50 cursor-pointer transition-colors"
-                onClick={() => setSelectedPost(post)}
-              >
-                <div className="font-bold text-blue-400 mb-1">{post.title}</div>
-                <div className="text-gray-400 text-xs mb-2">
-                  {post.date} • by {post.author}
-                </div>
-                <div className="text-gray-300 text-sm mb-3">{post.excerpt}</div>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag, index) => (
-                    <span key={index} className="text-xs px-2 py-1 bg-gray-700 rounded-full text-blue-300">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <div className="text-yellow-400 text-lg font-bold">{selectedPost.title}</div>
-            <button className="text-gray-400 hover:text-white text-sm" onClick={() => setSelectedPost(null)}>
-              Back to blog
-            </button>
-          </div>
-
-          <div className="flex items-center space-x-3 mb-4">
-            <div className="w-8 h-8 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
-              <img
-                src={selectedPost.authorImage || "/placeholder.svg"}
-                alt={selectedPost.author}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div>
-              <div className="font-bold">{selectedPost.author}</div>
-              <div className="text-gray-400 text-xs">{selectedPost.authorRole}</div>
-            </div>
-            <div className="text-gray-400 text-xs">•</div>
-            <div className="text-gray-400 text-xs">{selectedPost.date}</div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-4">
-            {selectedPost.tags.map((tag, index) => (
-              <span key={index} className="text-xs px-2 py-1 bg-gray-700 rounded-full text-blue-300">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <div className="prose prose-invert max-w-none">
-            {selectedPost.content.split("\n\n").map((paragraph, index) => {
-              if (paragraph.startsWith("## ")) {
-                return (
-                  <h2 key={index} className="text-xl font-bold text-blue-400 mt-6 mb-3">
-                    {paragraph.replace("## ", "")}
-                  </h2>
-                )
-              } else if (paragraph.startsWith("- **")) {
-                return (
-                  <ul key={index} className="list-disc pl-5 my-3">
-                    <li>
-                      <span className="font-bold">{paragraph.match(/\*\*(.*?)\*\*/)?.[1]}: </span>
-                      {paragraph.replace(/- \*\*(.*?)\*\*: /, "")}
-                    </li>
-                  </ul>
-                )
-              } else {
-                return (
-                  <p key={index} className="text-gray-300 mb-4">
-                    {paragraph}
-                  </p>
-                )
-              }
-            })}
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 // ================ TERMINAL COMPONENT ================
 
 type TerminalProps = {
   setShowUhOh: (show: boolean) => void
   saveBackground: (image: string, opacity: number) => void
-  backgroundOpacity: number
 }
 
 export type CommandHistory = {
@@ -808,7 +501,7 @@ export type CommandHistory = {
   output: React.ReactNode
 }[]
 
-const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: TerminalProps) => {
+const TerminalComponent = ({ setShowUhOh, saveBackground }: TerminalProps) => {
   const [commandHistory, setCommandHistory] = useState<CommandHistory>([])
   const [currentCommand, setCurrentCommand] = useState("")
   const [activeGame, setActiveGame] = useState<string | null>(null)
@@ -875,17 +568,6 @@ const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: T
         break
       case "contact":
         output = <ContactSection />
-        break
-      case "team":
-        output = <TeamSection />
-        break
-      case "colors":
-        output = (
-          <ColorsSection currentTheme={theme || "dark"} setTheme={setTheme} backgroundOpacity={backgroundOpacity} />
-        )
-        break
-      case "blog":
-        output = <BlogSection />
         break
       case "exit":
         output = (
@@ -992,7 +674,6 @@ const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: T
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: backgroundOpacity,
           }}
         />
       )}
@@ -1001,7 +682,7 @@ const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: T
           <div className="flex space-x-2">
             {/* Close Button */}
             <button
-              onClick={() => router.push('/dashboard')}
+              onClick={() => router.push("/dashboard")}
               className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-600 transition-colors flex items-center justify-center group relative"
               aria-label="Close terminal and return to dashboard"
             >
@@ -1017,7 +698,7 @@ const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: T
             </button>
 
             {/* Maximize Button */}
-            <div 
+            <div
               className="w-3.5 h-3.5 rounded-full bg-yellow-500 cursor-not-allowed flex items-center justify-center group relative"
               aria-label="Maximize (disabled)"
             >
@@ -1033,7 +714,7 @@ const TerminalComponent = ({ setShowUhOh, saveBackground, backgroundOpacity }: T
             </div>
 
             {/* Minimize Button */}
-            <div 
+            <div
               className="w-3.5 h-3.5 rounded-full bg-green-500 cursor-not-allowed flex items-center justify-center group relative"
               aria-label="Minimize (disabled)"
             >
@@ -1138,11 +819,7 @@ export default function Home() {
         />
       )}
       <div className="z-10 w-full max-w-5xl">
-        <TerminalComponent
-          setShowUhOh={setShowUhOh}
-          saveBackground={saveBackground}
-          backgroundOpacity={backgroundOpacity}
-        />
+        <TerminalComponent setShowUhOh={setShowUhOh} saveBackground={saveBackground} />
       </div>
     </main>
   )
