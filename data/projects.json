@@ -1,0 +1,74 @@
+[
+  {
+    "id": "arise-cli",
+    "title": "arAIse CLI",
+    "description": "A retro-style command-line interface",
+    "icon": "Briefcase",
+    "tags": ["Python", "CLI", "Retro"],
+    "githubUrl": "https://github.com/arAIse/arAIse-cli",
+    "videoUrl": "/videos/arise-cli-demo.mp4",
+    "docsUrl": "https://docs.araise.io/cli",
+    "lastUpdated": "2025-03-15",
+    "longDescription": "arAIse CLI is a retro-style command-line interface inspired by the 'Solo Leveling' anime. It features ASCII art, interactive commands, and a nostalgic terminal experience.",
+    "features": [
+      "Interactive terminal with retro aesthetics",
+      "ASCII art and animations",
+      "Command history and tab completion",
+      "Customizable themes and colors"
+    ],
+    "installCommands": [
+      {
+        "os": "windows",
+        "command": "winget install araise-cli",
+        "description": "Install arAIse CLI on Windows"
+      },
+      {
+        "os": "mac",
+        "command": "brew install araise-cli",
+        "description": "Install arAIse CLI on macOS"
+      },
+      {
+        "os": "linux",
+        "command": "sudo apt install araise-cli",
+        "description": "Install arAIse CLI on Linux"
+      }
+    ]
+  },
+  {
+    "id": "arise-web",
+    "title": "arAIse Web",
+    "description": "A web-based platform with retro aesthetics",
+    "icon": "Briefcase",
+    "tags": ["Next.js", "React", "Tailwind"],
+    "githubUrl": "https://github.com/arAIse/arAIse-web",
+    "videoUrl": "/videos/arise-web-demo.mp4",
+    "docsUrl": "https://docs.araise.io/web",
+    "lastUpdated": "2025-03-17",
+    "longDescription": "arAIse Web is a web-based platform that brings the retro terminal experience to the browser. It features a responsive design, interactive UI elements, and seamless integration with the CLI version.",
+    "features": [
+      "Responsive design with mobile support",
+      "CRT and scanline effects for authentic retro feel",
+      "Dark mode by default with customizable themes",
+      "Interactive games playable in the browser",
+      "Seamless switching between web and terminal modes"
+    ],
+    "installCommands": [
+      {
+        "os": "windows",
+        "command": "npm install -g araise-web",
+        "description": "Install arAIse Web globally on Windows"
+      },
+      {
+        "os": "mac",
+        "command": "npm install -g araise-web",
+        "description": "Install arAIse Web globally on macOS"
+      },
+      {
+        "os": "linux",
+        "command": "npm install -g araise-web",
+        "description": "Install arAIse Web globally on Linux"
+      }
+    ]
+  }
+]
+

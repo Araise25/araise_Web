@@ -1,0 +1,111 @@
+[
+  {
+    "id": 1,
+    "name": "Rushi Chaganti",
+    "role": "Founder, Chief of Technical Operations, Araise AI.",
+    "avatar": "/rushi.jpg?height=200&width=200",
+    "bio": "Passionate about AI research and finding ways to make cutting-edge models more efficient and ethical.",
+    "skills": ["Python", "React", "Next.js", "TypeScript"],
+    "projects": [
+      {
+        "name": "arAIse CLI",
+        "description": "Lead developer for the command-line interface",
+        "link": "https://github.com/arAIse/arAIse-cli"
+      },
+      {
+        "name": "arAIse Web",
+        "description": "Architect for the web interface",
+        "link": "https://github.com/arAIse/arAIse-web"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/RushiChaganti",
+      "x": "https://x.com/Rushichaganti",
+      "linkedin": "https://www.linkedin.com/in/rushichaganti/",
+      "website": "https://rushichaganti.com"
+    },
+    "email": "rushi@araise.ai"
+  },
+  {
+    "id": 2,
+    "name": "Ravi Shankar Krishna",
+    "role": "Chief Security Officer, Araise AI",
+    "avatar": "/ravishankar.jpg?height=200&width=200",
+    "bio": "A guy who loves to code and build cool stuff with AI. Also loves to play video games",
+    "skills": ["Networking", "Computer Science", "Python", "Cyber Security"],
+    "projects": [
+      {
+        "name": "arAIse Design System",
+        "description": "Created the design system and component library",
+        "link": "https://design.araise.io"
+      },
+      {
+        "name": "arAIse Web",
+        "description": "Lead designer for the web interface",
+        "link": "https://github.com/arAIse/arAIse-web"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/krishna1811",
+      "x": "https://x.com/BeRavi_98?t=Yu92ywqPBg2taAH4l3YrKw&s=08",
+      "linkedin": "https://www.linkedin.com/in/ravi-shankar-krishna?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      "website": "https://ravishankar.dev"
+    },
+    "email": "ravi@araise.ai"
+  },
+  {
+    "id": 3,
+    "name": "Dheeraj Chinni",
+    "role": "Lead - AI Operations, Araise AI.",
+    "avatar": "/dheeru.jpeg?height=200&width=200",
+    "bio": "CS Student, Specialised in building AI Applications.",
+    "skills": ["Python", "C++", "ML Operations", "Deep Learning"],
+    "projects": [
+      {
+        "name": "Glance",
+        "description": "A browser extension to provide summaries and explanations.",
+        "link": "https://github.com/arAIse/arAIse-games"
+      },
+      {
+        "name": "Automatic Image Organisation System",
+        "description": "Organises your images into folders based on their content.",
+        "link": "https://games.araise.io/pacman"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/sairajdheeraj",
+      "x": "https://x.com/chinni_dheeraj",
+      "linkedin": "https://www.linkedin.com/in/chinnisairajdheeraj",
+      "website": "https://dheerajchinni.com"
+    },
+    "email": "dheeraj@araise.ai"
+  },
+  {
+    "id": 4,
+    "name": "Shiva Karthik Gandikota",
+    "role": "Lead - Developer Operations",
+    "avatar": "/shivakarthik.jpg?height=200&width=200",
+    "bio": "CS Student, Specialised in building practical applications.",
+    "skills": ["Python", "Docker", "AWS", "API Design"],
+    "projects": [
+      {
+        "name": "arAIse API",
+        "description": "Lead developer for the backend API",
+        "link": "https://github.com/arAIse/arAIse-api"
+      },
+      {
+        "name": "arAIse Database",
+        "description": "Designed and implemented the database schema",
+        "link": "https://github.com/arAIse/arAIse-db"
+      }
+    ],
+    "links": {
+      "github": "https://github.com/karthik6214",
+      "x": "https://x.com/ShivaKarthik_08?t=35De-KccgjG7D8PPj-OZqg&s=08",
+      "linkedin": "https://www.linkedin.com/in/gandikota-shiva-karthik-0ab237231/ ",
+      "website": "https://shivakarthik.dev"
+    },
+    "email": "shiva@araise.ai"
+  }
+]
+

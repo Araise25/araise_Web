@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose {
+  @apply text-white;
+}
+
+.prose h2 {
+  @apply text-3xl font-semibold mt-8 mb-6;
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold mt-6 mb-4;
+}
+
+.prose p {
+  @apply mb-6 text-lg leading-relaxed;
+}
+
+.prose ul {
+  @apply list-disc list-inside mb-6 space-y-2;
+}
+
+.prose li {
+  @apply text-lg mb-2;
+}
+
+.prose strong {
+  @apply font-semibold;
+}
+
+/* Add custom scrollbar styling */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary)) transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: hsl(var(--primary));
+  border-radius: 20px;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --primary: 120 100% 50%;
+    --secondary: 120 100% 10%;
+    --accent: 120 100% 40%;
+    --border: 120 100% 20%;
+    --muted: 120 100% 10%;
+    --muted-foreground: 120 100% 70%;
+  }
+}
+
+@layer components {
+  .glitch-text {
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+      rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em -0.05em 0
+        rgba(0, 0, 255, 0.75);
+    }
+  }
+
+  .scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 51%);
+    background-size: 100% 4px;
+    z-index: 10;
+    pointer-events: none;
+  }
+}
+/* Base styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  /* Force dark theme */
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Remove any old theme-specific classes */
+/* Theme variations */
+/* Visual effects */
+/* Scrollbar styling */
+/* Add a new wallpaper container style */
+/* Make sidebar background transparent */
+.sidebar {
+  background-color: rgba(0, 0, 0, 0.75) !important; /* Add some transparency to let the background show through */
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect */
+}
+
+/* Add these styles to your existing CSS */
+body {
+  min-height: 100vh;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: opacity 0.3s ease;
+}
+
+/* Add a container for the background */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Make content container have proper z-index */
+.content-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add these styles for enhanced sidebar interactions */
+[data-sidebar="menu-button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-sidebar="menu-button"]:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: hsl(var(--primary));
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced hover state for sidebar items */
+[data-sidebar="menu-button"]:hover {
+  background: rgba(var(--primary), 0.1);
+  transform: translateX(4px);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Active state enhancement */
+[data-sidebar="menu-button"][data-active="true"] {
+  background: rgba(var(--primary), 0.2);
+  border-left: 4px solid hsl(var(--primary));
+}
+
