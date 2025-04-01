@@ -17,7 +17,7 @@ export default function TeamPage() {
   const teamMembers = getTeamMembers()
 
   // Helper function to get the correct image path
-  const getImagePath = (avatar: string) => `/team/${avatar}`
+  const getImagePath = (avatar: string) => `team/${avatar}`
 
   return (
     <div className="space-y-8">
