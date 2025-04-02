@@ -17,7 +17,10 @@ export default function TeamPage() {
   const teamMembers = getTeamMembers()
 
   // Helper function to get the correct image path
-  const getImagePath = (avatar: string) => `team/${avatar}`
+  const getImagePath = (avatar: string) => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/arAIse_Web' : ''
+    return `${basePath}/team/${avatar}`
+  }
 
   return (
     <div className="space-y-8">
@@ -43,6 +46,7 @@ export default function TeamPage() {
                       fill
                       className="object-cover rounded-full"
                       sizes="(max-width: 96px) 100vw, 96px"
+                      priority
                     />
                   </div>
                 ) : (
@@ -138,6 +142,7 @@ export default function TeamPage() {
                         fill
                         className="object-cover rounded-full"
                         sizes="(max-width: 128px) 100vw, 128px"
+                        priority
                       />
                     </div>
                   ) : (
