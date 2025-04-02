@@ -31,30 +31,39 @@ export function ThemeProvider({
 }) {
   const [mounted, setMounted] = useState(false)
   const [theme, setThemeState] = useState<Theme | null>(() => {
-    const defaultThemeObj = predefinedThemes.find((t) => t.id === defaultTheme) || predefinedThemes[0]
-    return defaultThemeObj
+    if (typeof window !== 'undefined') {
+      const savedThemeId = localStorage.getItem("arAIse-theme")
+      if (savedThemeId) {
+        const savedTheme = predefinedThemes.find((t) => t.id === savedThemeId)
+        if (savedTheme) return savedTheme
+      }
+    }
+    return predefinedThemes.find((t) => t.id === defaultTheme) || predefinedThemes[0]
   })
 
   useEffect(() => {
     setMounted(true)
-    // Initialize theme from localStorage or default
-    const savedThemeId = localStorage.getItem("arAIse-theme") || defaultTheme
-    const savedTheme = predefinedThemes.find((t) => t.id === savedThemeId) || predefinedThemes[0]
-    setThemeState(savedTheme)
-    applyTheme(savedTheme)
-  }, [defaultTheme])
+    const savedThemeId = localStorage.getItem("arAIse-theme")
+    if (savedThemeId) {
+      const savedTheme = predefinedThemes.find((t) => t.id === savedThemeId)
+      if (savedTheme) {
+        setThemeState(savedTheme)
+        applyTheme(savedTheme)
+      }
+    }
+  }, [])
 
   const applyTheme = (theme: Theme) => {
     if (!mounted) return
     const root = document.documentElement
     Object.entries(theme.colors).forEach(([key, value]) => {
-      // Convert hex to HSL
       const rgb = hexToRgb(value)
       if (rgb) {
         const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b)
         root.style.setProperty(`--${key}`, `${hsl.h} ${hsl.s}% ${hsl.l}%`)
       }
     })
+    localStorage.setItem("arAIse-theme", theme.id)
   }
 
   const setTheme = (themeId: string) => {

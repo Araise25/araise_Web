@@ -38,12 +38,12 @@ const predefinedThemes: ColorTheme[] = [
     id: "default",
     name: "Default Green",
     colors: {
-      background: "#000000",
-      foreground: "#ffffff",
-      primary: "#10b981",
-      secondary: "#1f2937",
-      accent: "#374151",
-      border: "#374151",
+      background: "#241b2f",
+      foreground: "#f8f8f2",
+      primary: "#ff79c6",
+      secondary: "#2d1b40",
+      accent: "#3b2954",
+      border: "#3b2954",
     },
   },
   {
