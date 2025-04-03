@@ -27,9 +27,6 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
       - name: Install dependencies
         run: npm install  
 
@@ -37,6 +34,9 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /arAIse_Web
+
+      - name: Disable Jekyll (for GitHub Pages)
+        run: touch ./out/.nojekyll  
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
