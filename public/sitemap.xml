@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Dashboard Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Projects Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard/projects</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard/blog</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contribute Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard/contribute</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contact Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard/contact</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Team Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/dashboard/team</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Terminal Section -->
+  <url>
+    <loc>https://araise25.github.io/arAIse_Web/terminal</loc>
+    <lastmod>2024-03-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
