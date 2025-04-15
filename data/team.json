@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Rushi Chaganti",
-    "role": "Founder, Chief of Technical Operations",
+    "role": "Developer",
     "avatar": "rushi.jpg",
     "bio": "Passionate about AI research and finding ways to make cutting-edge models more efficient and ethical.",
     "skills": ["Python", "React", "Next.js", "TypeScript"],
@@ -29,7 +29,7 @@
   {
     "id": 2,
     "name": "Ravi Shankar Krishna",
-    "role": "Chief Security Officer, Mentor",
+    "role": "Mentor, Developer",
     "avatar": "ravishankar.jpg",
     "bio": "A guy who loves to code and build cool stuff with AI. Also loves to play video games",
     "skills": ["Networking", "Computer Science", "Python", "Cyber Security"],
@@ -56,7 +56,7 @@
   {
     "id": 3,
     "name": "Dheeraj Chinni",
-    "role": "Lead - AI Operations",
+    "role": "Developer",
     "avatar": "dheeraj.jpg",
     "bio": "CS Student, Specialised in building AI Applications.",
     "skills": ["Python", "C++", "ML Operations", "Deep Learning"],
@@ -83,7 +83,7 @@
   {
     "id": 4,
     "name": "Shiva Karthik Gandikota",
-    "role": "Lead - Developer Operations",
+    "role": "Developer",
     "avatar": "shivakarthik.jpg",
     "bio": "CS Student, Specialised in building practical applications.",
     "skills": ["Python", "Docker", "AWS", "API Design"],
