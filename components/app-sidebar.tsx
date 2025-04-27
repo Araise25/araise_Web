@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import {
   Sidebar,
   SidebarContent,
@@ -146,6 +147,13 @@ export function AppSidebar() {
       <SidebarHeader className="p-4">
         <div className="flex items-center justify-between">
           <Link href="/dashboard" className="flex items-center space-x-2">
+            <Image
+              src="/sidebar_logo.svg"
+              alt="arAIse Logo"
+              width={128}
+              height={128}
+              className="h-8 w-auto"
+            />
             <span className="text-2xl font-bold tracking-tight text-primary">
               {localStorage.getItem("arAIse-username") || "arAIse"}
             </span>

@@ -12,8 +12,22 @@ const vt323 = VT323({
 })
 
 export const metadata: Metadata = {
-  title: "arAIse - Bringing AI closer!!",
+  title: "arAIse | Bringing AI closer",
   description: "A retro-style CLI & Web interactive experience inspired by Solo Leveling",
+  icons: {
+    icon: [
+      {
+        url: '/favicon-64x64.png',
+        sizes: '64x64',
+        type: 'image/png',
+      },
+      {
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      }
+    ]
+  },
 }
 
 export default function RootLayout({

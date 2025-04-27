@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from "@/components/ui/tooltip"
 import { Settings, HelpCircle, FolderGit, Users, Mail, FileText, TerminalSquare } from "lucide-react"
 import { TerminalModal } from "@/components/terminal-modal"
+import Image from "next/image"
 
 const navItems = [
   {
@@ -50,7 +51,13 @@ export function TopNav() {
       <header className="border-b border-primary/10 bg-black">
         <div className="flex h-16 items-center px-4">
           <Link href="/dashboard" className="mr-6">
-            <span className="text-lg font-bold text-primary">arAIse</span>
+            <Image
+              src="/logo.png"
+              alt="arAIse Logo"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+            />
           </Link>
 
           <nav className="flex-1 flex items-center space-x-4">
