@@ -47,7 +47,7 @@ export default function DashboardPage() {
       id: "windows",
       os: "Windows",
       command:
-        'powershell -Command "$script = Invoke-WebRequest -UseBasicParsing -Uri \'https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1\'; $script.Content | Out-File -FilePath \\"$env:TEMP\\araise_install.ps1\\"; & \\"$env:TEMP\\araise_install.ps1\\""',
+        '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
       icon: Shield,
     },
     {
