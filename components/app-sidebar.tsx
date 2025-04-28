@@ -1,8 +1,8 @@
-"use client"
-import { useState, useEffect } from "react"
-import { usePathname } from "next/navigation"
-import Link from "next/link"
-import Image from "next/image"
+"use client";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 import {
   Sidebar,
   SidebarContent,
@@ -16,23 +16,32 @@ import {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
-import { Briefcase, Contact, Github, Home, Palette, Users, BookOpen, Terminal } from "lucide-react"
+} from "@/components/ui/sidebar";
+import {
+  Briefcase,
+  Contact,
+  Github,
+  Home,
+  Palette,
+  Users,
+  BookOpen,
+  Terminal,
+} from "lucide-react";
 
 type ColorTheme = {
-  id: string
-  name: string
+  id: string;
+  name: string;
   colors: {
-    background: string
-    foreground: string
-    primary: string
-    secondary: string
-    accent: string
-    border: string
-    muted?: string
-    "muted-foreground"?: string
-  }
-}
+    background: string;
+    foreground: string;
+    primary: string;
+    secondary: string;
+    accent: string;
+    border: string;
+    muted?: string;
+    "muted-foreground"?: string;
+  };
+};
 
 const predefinedThemes: ColorTheme[] = [
   {
@@ -107,36 +116,38 @@ const predefinedThemes: ColorTheme[] = [
       border: "#252550",
     },
   },
-]
+];
 
 export function AppSidebar() {
-  const pathname = usePathname()
-  const [sidebarPosition, setSidebarPosition] = useState<"left" | "right">("left")
-  const [currentTheme, setCurrentTheme] = useState<string>("default")
+  const pathname = usePathname();
+  const [sidebarPosition, setSidebarPosition] = useState<"left" | "right">(
+    "left",
+  );
+  const [currentTheme, setCurrentTheme] = useState<string>("default");
 
   useEffect(() => {
-    const savedPosition = localStorage.getItem("arAIse-sidebar-position")
+    const savedPosition = localStorage.getItem("arAIse-sidebar-position");
     if (savedPosition === "left" || savedPosition === "right") {
-      setSidebarPosition(savedPosition)
+      setSidebarPosition(savedPosition);
     }
 
-    const savedTheme = localStorage.getItem("arAIse-theme")
+    const savedTheme = localStorage.getItem("arAIse-theme");
     if (savedTheme) {
-      setCurrentTheme(savedTheme)
-      applyTheme(savedTheme)
+      setCurrentTheme(savedTheme);
+      applyTheme(savedTheme);
     }
-  }, [])
+  }, []);
 
   const applyTheme = (themeId: string) => {
-    const theme = predefinedThemes.find((t) => t.id === themeId)
+    const theme = predefinedThemes.find((t) => t.id === themeId);
     if (theme) {
       Object.entries(theme.colors).forEach(([key, value]) => {
-        document.documentElement.style.setProperty(`--${key}`, value)
-      })
-      localStorage.setItem("arAIse-theme", themeId)
-      setCurrentTheme(themeId)
+        document.documentElement.style.setProperty(`--${key}`, value);
+      });
+      localStorage.setItem("arAIse-theme", themeId);
+      setCurrentTheme(themeId);
     }
-  }
+  };
 
   return (
     <Sidebar
@@ -148,7 +159,7 @@ export function AppSidebar() {
         <div className="flex items-center justify-between">
           <Link href="/dashboard" className="flex items-center space-x-2">
             <Image
-              src="/sidebar_logo.svg"
+              src="sidebar_logo.svg"
               alt="arAIse Logo"
               width={128}
               height={128}
@@ -166,7 +177,9 @@ export function AppSidebar() {
 
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-primary/70">Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-primary/70">
+            Navigation
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
@@ -277,7 +290,11 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/dashboard/appearance"} tooltip="Appearance">
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname === "/dashboard/appearance"}
+                  tooltip="Appearance"
+                >
                   <Link href="/dashboard/appearance">
                     <Palette className="h-5 w-5" />
                     <span>Appearance</span>
@@ -291,6 +308,5 @@ export function AppSidebar() {
 
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }
-
