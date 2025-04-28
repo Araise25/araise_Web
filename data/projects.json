@@ -19,17 +19,17 @@
     "installCommands": [
       {
         "os": "windows",
-        "command": "winget install araise-cli",
+        "command": "$script = Invoke-WebRequest -UseBasicParsing -Uri \"https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1\"; $script.Content | Out-File -FilePath \"$env:TEMP\\araise_install.ps1\"; & \"$env:TEMP\\araise_install.ps1\"",
         "description": "Install arAIse CLI on Windows"
       },
       {
         "os": "mac",
-        "command": "brew install araise-cli",
+        "command": "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
         "description": "Install arAIse CLI on macOS"
       },
       {
         "os": "linux",
-        "command": "sudo apt install araise-cli",
+        "command": "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
         "description": "Install arAIse CLI on Linux"
       }
     ]
@@ -71,4 +71,3 @@
     ]
   }
 ]
-
