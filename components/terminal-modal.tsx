@@ -1,10 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { useEffect, useState, useRef, type ReactNode } from "react"
 import { useTheme } from "next-themes"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import {
   Terminal,
   HelpCircle,
@@ -17,6 +17,7 @@ import {
   Upload,
   ExternalLink,
   MessageSquare,
+  BookOpen,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { themes, initializeTheme, applyTheme, getCurrentTheme } from "@/lib/theme-utils"
@@ -29,6 +30,7 @@ type Project = {
   longDescription: string
   githubUrl: string
   features?: string[]  // Make it optional with ?
+  mediumUrl: string
   // Add other project properties as needed
 }
 
@@ -424,66 +426,143 @@ const ContactSection = () => {
 // ================ PROJECTS SECTION ================
 
 const ProjectsSection = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const projects = getProjects()
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const projects = getProjects();
+  const router = useRouter();
+  
+  // Add platform detection
+  const userAgent = window.navigator.userAgent.toLowerCase();
+  const currentPlatform = userAgent.indexOf("win") !== -1 
+    ? "windows" 
+    : userAgent.indexOf("mac") !== -1 
+    ? "mac" 
+    : userAgent.indexOf("linux") !== -1 
+    ? "linux" 
+    : null;
 
-  return (
-    <div>
-      {!selectedProject ? (
-        <div className="space-y-4">
-          <div className="text-yellow-400 text-lg font-bold mb-2">Available Projects:</div>
-          <div className="space-y-2">
-            {projects.map((project) => (
-              <div
-                key={project.id}
-                className="flex items-center space-x-2 p-2 rounded hover:bg-gray-800 cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <FolderGit className="w-5 h-5 text-blue-400" />
-                <span>{project.title}</span>
-              </div>
-            ))}
-          </div>
-          <div className="text-gray-400 text-sm mt-2">Click on a project to view details.</div>
+  if (selectedProject) {
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center space-x-2">
+          <button
+            onClick={() => setSelectedProject(null)}
+            className="text-blue-400 hover:underline"
+          >
+            ← Back to projects
+          </button>
         </div>
-      ) : (
+        
         <div className="space-y-4">
-          <div className="flex justify-between items-center">
-            <div className="text-yellow-400 text-lg font-bold">{selectedProject.title}</div>
-            <button className="text-gray-400 hover:text-white text-sm" onClick={() => setSelectedProject(null)}>
-              Back to projects
-            </button>
-          </div>
-
-          <div>
-            <div className="text-gray-300 mb-2">{selectedProject.longDescription}</div>
-            {selectedProject.features && (
-              <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                {selectedProject.features.map((feature, index) => (
-                  <li key={index}>{feature}</li>
+          <h3 className="text-lg font-bold text-yellow-400">{selectedProject.title}</h3>
+          <p>{selectedProject.longDescription}</p>
+          
+          {selectedProject.features && (
+            <div className="space-y-2">
+              <div className="text-blue-400 font-bold">Features:</div>
+              <ul className="list-disc list-inside space-y-1">
+                {selectedProject.features.map((feature, idx) => (
+                  <li key={idx}>{feature}</li>
                 ))}
               </ul>
-            )}
-            <div className="space-y-2 mt-4">
-              <div className="flex items-center space-x-2">
-                <Github className="w-4 h-4 text-white" />
-                <a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline flex items-center"
-                >
-                  GitHub Repository
-                  <ExternalLink className="w-3 h-3 ml-1" />
-                </a>
-              </div>
+            </div>
+          )}
+
+          {selectedProject.installCommands && selectedProject.installCommands.length > 0 ? (
+            <div className="space-y-2">
+              <div className="text-blue-400 font-bold">Installation Commands:</div>
+              {selectedProject.installCommands
+                .filter(cmd => cmd.os.toLowerCase() === currentPlatform)
+                .map((cmd, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <div className="text-sm text-gray-400">{cmd.description}</div>
+                    <div className="flex items-center space-x-2 bg-black/40 p-2 rounded-md">
+                      <code className="font-mono">{cmd.command}</code>
+                      <button
+                        onClick={() => navigator.clipboard.writeText(cmd.command)}
+                        className="px-2 py-1 text-xs bg-primary/20 rounded hover:bg-primary/30"
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          ) : (
+            <div className="text-yellow-400">
+              No installation commands available for this project.
+            </div>
+          )}
+
+          <div className="space-y-2">
+            <div className="text-blue-400 font-bold">Links:</div>
+            <div className="flex space-x-4">
+              <a
+                href={selectedProject.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:underline flex items-center"
+              >
+                <Github className="w-4 h-4 mr-1" />
+                GitHub
+              </a>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  router.push(`/dashboard/blog?post=${selectedProject.blogPostId}`);
+                }}
+                className="text-blue-400 hover:underline flex items-center cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4 mr-1" />
+                Blog
+              </a>
             </div>
           </div>
         </div>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-4">
+      <div className="text-yellow-400 text-lg font-bold mb-2">Available Projects:</div>
+      <div className="space-y-2">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="flex items-center justify-between p-2 rounded hover:bg-gray-800 cursor-pointer"
+            onClick={() => setSelectedProject(project)}
+          >
+            <div className="flex items-center space-x-2">
+              <FolderGit className="w-5 h-5 text-blue-400" />
+              <span>{project.title}</span>
+            </div>
+            <div className="flex space-x-2">
+              <a 
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the parent onClick
+                  e.preventDefault();
+                  router.push(`/dashboard/blog?post=${project.blogPostId}`);
+                }}
+                className="text-primary hover:text-primary/80 cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4" />
+              </a>
+              <a 
+                href={project.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:text-primary/80"
+                onClick={(e) => e.stopPropagation()} // Prevent triggering the parent onClick
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
 // ================ TEAM SECTION ================
 
@@ -585,34 +664,73 @@ const TerminalComponent = ({ setShowUhOh, saveBackground }: TerminalProps) => {
         output = <CommandOutput>Redirecting to dashboard...</CommandOutput>
         break
       case "install":
-        const platform = navigator.platform.toLowerCase()
-        const os = platform.includes("win") ? "windows" : platform.includes("mac") ? "mac" : "linux"
+        if (!selectedProject?.installCommands || selectedProject.installCommands.length === 0) {
+          output = (
+            <CommandOutput>
+              <div className="text-yellow-400">
+                No installation commands available for this project.
+              </div>
+            </CommandOutput>
+          );
+          break;
+        }
 
-        const projects = getProjects()
-        const installCommands = projects.flatMap((p) => p.installCommands.filter((cmd) => cmd.os === os))
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        const currentPlatform = userAgent.indexOf("win") !== -1 
+          ? "windows" 
+          : userAgent.indexOf("mac") !== -1 
+          ? "mac" 
+          : userAgent.indexOf("linux") !== -1 
+          ? "linux" 
+          : null;
+        
+        const commands = [
+          {
+            id: "windows",
+            os: "Windows",
+            command: '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
+          },
+          {
+            id: "mac",
+            os: "macOS",
+            command: "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+          },
+          {
+            id: "linux",
+            os: "Linux",
+            command: "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+          },
+        ];
 
         output = (
           <CommandOutput>
             <div className="space-y-4">
-              <div className="text-yellow-400 text-lg font-bold">Available Installation Commands:</div>
-              {installCommands.map((cmd, idx) => (
-                <div key={idx} className="space-y-2">
-                  <div className="text-blue-400">{cmd.description}</div>
-                  <div className="flex items-center space-x-2 bg-black/40 p-2 rounded-md">
-                    <code className="font-mono">{cmd.command}</code>
-                    <button
-                      onClick={() => navigator.clipboard.writeText(cmd.command)}
-                      className="px-2 py-1 text-xs bg-primary/20 rounded hover:bg-primary/30"
-                    >
-                      Copy
-                    </button>
+              <div className="text-yellow-400 text-lg font-bold">Installation Command for your system:</div>
+              {currentPlatform && commands
+                .filter((cmd) => cmd.id === currentPlatform)
+                .map((cmd) => (
+                  <div key={cmd.id} className="space-y-2">
+                    <div className="text-blue-400">{cmd.os} Installation</div>
+                    <div className="flex items-center space-x-2 bg-black/40 p-2 rounded-md">
+                      <code className="font-mono">{cmd.command}</code>
+                      <button
+                        onClick={() => navigator.clipboard.writeText(cmd.command)}
+                        className="px-2 py-1 text-xs bg-primary/20 rounded hover:bg-primary/30"
+                      >
+                        Copy
+                      </button>
+                    </div>
                   </div>
+                ))}
+              {!currentPlatform && (
+                <div className="text-red-400">
+                  Could not detect your operating system. Please use the dashboard to view all available commands.
                 </div>
-              ))}
+              )}
             </div>
           </CommandOutput>
-        )
-        break
+        );
+        break;
       case "":
         output = <div></div>
         break

@@ -3,11 +3,13 @@
 import TerminalComponent from "@/components/terminal-modal"
 import { useState, useEffect } from "react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { useRouter } from "next/navigation"
 
 export default function TerminalPage() {
   const [showUhOh, setShowUhOh] = useState(false)
   const [backgroundImage, setBackgroundImage] = useState<string | null>(null)
   const [backgroundOpacity, setBackgroundOpacity] = useState(0.7)
+  const router = useRouter()
 
   useEffect(() => {
     // Load background from local storage if available
@@ -51,6 +53,7 @@ export default function TerminalPage() {
               setShowUhOh={setShowUhOh}
               saveBackground={saveBackground}
               backgroundOpacity={backgroundOpacity}
+              onBookClick={() => router.push("/dashboard/blog")}
             />
           </div>
         </main>

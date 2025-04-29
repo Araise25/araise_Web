@@ -62,7 +62,7 @@ export default function ContributePage() {
                       make changes.
                     </p>
                     <Button variant="outline" size="sm" className="mt-2 border-primary/30 hover:bg-primary/10" asChild>
-                      <Link href="https://github.com/arAIse" target="_blank">
+                      <Link href="https://github.com/arAIse25" target="_blank">
                         <Github className="mr-1 h-4 w-4" />
                         Fork on GitHub
                       </Link>
@@ -80,7 +80,7 @@ export default function ContributePage() {
                       Clone your forked repository to your local machine.
                     </p>
                     <div className="font-mono text-xs text-muted-foreground bg-black p-3 rounded-md border border-primary/10 mt-2">
-                      <pre>git clone https://github.com/YOUR-USERNAME/arAIse.git</pre>
+                      <pre>git clone https://github.com/YOUR-USERNAME/arAIse25.git</pre>
                     </div>
                   </div>
                 </div>

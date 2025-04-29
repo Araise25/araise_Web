@@ -215,12 +215,6 @@ const sections = [
     href: "/dashboard/projects",
   },
   {
-    title: "Blog",
-    description: "Read the latest updates, tutorials and insights",
-    icon: BookOpen,
-    href: "/dashboard/blog",
-  },
-  {
     title: "Contribute",
     description: "Learn how to contribute to arAIse",
     icon: ArrowRight,
@@ -237,5 +231,11 @@ const sections = [
     description: "Meet the team behind arAIse",
     icon: Users,
     href: "/dashboard/team",
+  },
+  {
+    title: "Blog",
+    description: "Read the latest updates and articles",
+    icon: BookOpen,
+    href: "/dashboard/blog",
   },
 ];

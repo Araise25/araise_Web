@@ -1,20 +1,19 @@
 [
   {
-    "id": "arise-cli",
-    "title": "arAIse CLI",
+    "id": "arise-PM",
+    "title": "arAIse Package Manager",
     "description": "A retro-style command-line interface",
     "icon": "Briefcase",
-    "tags": ["Python", "CLI", "Retro"],
-    "githubUrl": "https://github.com/arAIse/arAIse-cli",
-    "videoUrl": "/videos/arise-cli-demo.mp4",
-    "docsUrl": "https://docs.araise.io/cli",
-    "lastUpdated": "2025-03-15",
-    "longDescription": "arAIse CLI is a retro-style command-line interface inspired by the 'Solo Leveling' anime. It features ASCII art, interactive commands, and a nostalgic terminal experience.",
+    "tags": ["powerShell", "LINUX"],
+    "githubUrl": "https://github.com/Araise25/arAIse_PM",
+
+    "lastUpdated": "2025-04-28",
+    "longDescription": "Araise Package Manager is a cross-platform tool designed to streamline the installation and management of software packages. It emphasizes simplicity, security, and community-driven contributions.",
     "features": [
-      "Interactive terminal with retro aesthetics",
-      "ASCII art and animations",
-      "Command history and tab completion",
-      "Customizable themes and colors"
+      "Cross-platform support for Windows, Linux, and macOS",
+      "Secure package verification and dependency checks",
+      "Extensible structure for adding and managing new packages",
+      "User-friendly interface for easy package installation and updates"
     ],
     "installCommands": [
       {
@@ -31,42 +30,6 @@
         "os": "linux",
         "command": "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
         "description": "Install arAIse CLI on Linux"
-      }
-    ]
-  },
-  {
-    "id": "arise-web",
-    "title": "arAIse Web",
-    "description": "A web-based platform with retro aesthetics",
-    "icon": "Briefcase",
-    "tags": ["Next.js", "React", "Tailwind"],
-    "githubUrl": "https://github.com/arAIse/arAIse-web",
-    "videoUrl": "/videos/arise-web-demo.mp4",
-    "docsUrl": "https://docs.araise.io/web",
-    "lastUpdated": "2025-03-17",
-    "longDescription": "arAIse Web is a web-based platform that brings the retro terminal experience to the browser. It features a responsive design, interactive UI elements, and seamless integration with the CLI version.",
-    "features": [
-      "Responsive design with mobile support",
-      "CRT and scanline effects for authentic retro feel",
-      "Dark mode by default with customizable themes",
-      "Interactive games playable in the browser",
-      "Seamless switching between web and terminal modes"
-    ],
-    "installCommands": [
-      {
-        "os": "windows",
-        "command": "npm install -g araise-web",
-        "description": "Install arAIse Web globally on Windows"
-      },
-      {
-        "os": "mac",
-        "command": "npm install -g araise-web",
-        "description": "Install arAIse Web globally on macOS"
-      },
-      {
-        "os": "linux",
-        "command": "npm install -g araise-web",
-        "description": "Install arAIse Web globally on Linux"
       }
     ]
   }
