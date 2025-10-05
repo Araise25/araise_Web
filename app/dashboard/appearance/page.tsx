@@ -22,7 +22,7 @@ export default function AppearancePage() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [opacity, setOpacity] = useState(() => {
     if (typeof window !== "undefined") {
-      return Number.parseFloat(localStorage.getItem("arAIse-background-opacity") || "0.7")
+      return Number.parseFloat(localStorage.getItem("araise-background-opacity") || "0.7")
     }
     return 0.7
   })
@@ -30,7 +30,7 @@ export default function AppearancePage() {
   useEffect(() => {
     setMounted(true)
     // Check and clear any existing backgrounds
-    const keysToCheck = ["arAIse-background", "arAIseBackground", "arAIse-wallpaper-url", "arAIse-show-wallpaper"]
+    const keysToCheck = ["araise-background", "araiseBackground", "araise-wallpaper-url", "araise-show-wallpaper"]
 
     // Log existing values (for debugging)
     keysToCheck.forEach((key) => {
@@ -61,7 +61,7 @@ export default function AppearancePage() {
       const reader = new FileReader()
       reader.onload = (event) => {
         if (event.target?.result) {
-          localStorage.setItem("arAIse-background", event.target.result as string)
+          localStorage.setItem("araise-background", event.target.result as string)
           window.dispatchEvent(new Event("background-changed"))
           toast.success("Background updated successfully")
         }
@@ -76,10 +76,10 @@ export default function AppearancePage() {
 
   const removeBackground = () => {
     // Remove all possible background-related items
-    localStorage.removeItem("arAIse-background")
-    localStorage.removeItem("arAIseBackground")
-    localStorage.removeItem("arAIse-wallpaper-url")
-    localStorage.removeItem("arAIse-show-wallpaper")
+    localStorage.removeItem("araise-background")
+    localStorage.removeItem("araiseBackground")
+    localStorage.removeItem("araise-wallpaper-url")
+    localStorage.removeItem("araise-show-wallpaper")
 
     // Reset body styles
     document.body.style.backgroundImage = ""
@@ -92,7 +92,7 @@ export default function AppearancePage() {
   const handleOpacityChange = (value: number[]) => {
     const newOpacity = value[0]
     setOpacity(newOpacity)
-    localStorage.setItem("arAIse-background-opacity", newOpacity.toString())
+    localStorage.setItem("araise-background-opacity", newOpacity.toString())
     document.body.style.opacity = newOpacity.toString()
     window.dispatchEvent(new Event("background-changed"))
     toast.success("Opacity updated")
@@ -110,7 +110,7 @@ export default function AppearancePage() {
             <Palette className="mr-2 h-5 w-5" />
             Theme Selection
           </CardTitle>
-          <CardDescription>Choose a theme to customize the appearance of arAIse</CardDescription>
+          <CardDescription>Choose a theme to customize the appearance of araise</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

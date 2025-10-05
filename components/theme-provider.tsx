@@ -32,7 +32,7 @@ export function ThemeProvider({
   const [mounted, setMounted] = useState(false)
   const [theme, setThemeState] = useState<Theme | null>(() => {
     if (typeof window !== 'undefined') {
-      const savedThemeId = localStorage.getItem("arAIse-theme")
+      const savedThemeId = localStorage.getItem("araise-theme")
       if (savedThemeId) {
         const savedTheme = predefinedThemes.find((t) => t.id === savedThemeId)
         if (savedTheme) return savedTheme
@@ -43,7 +43,7 @@ export function ThemeProvider({
 
   useEffect(() => {
     setMounted(true)
-    const savedThemeId = localStorage.getItem("arAIse-theme")
+    const savedThemeId = localStorage.getItem("araise-theme")
     if (savedThemeId) {
       const savedTheme = predefinedThemes.find((t) => t.id === savedThemeId)
       if (savedTheme) {
@@ -63,7 +63,7 @@ export function ThemeProvider({
         root.style.setProperty(`--${key}`, `${hsl.h} ${hsl.s}% ${hsl.l}%`)
       }
     })
-    localStorage.setItem("arAIse-theme", theme.id)
+    localStorage.setItem("araise-theme", theme.id)
   }
 
   const setTheme = (themeId: string) => {
@@ -71,7 +71,7 @@ export function ThemeProvider({
     const newTheme = predefinedThemes.find((t) => t.id === themeId)
     if (newTheme) {
       setThemeState(newTheme)
-      localStorage.setItem("arAIse-theme", themeId)
+      localStorage.setItem("araise-theme", themeId)
       applyTheme(newTheme)
     }
   }

@@ -6,7 +6,7 @@
     "excerpt": "How artificial intelligence is transforming the way we build and interact with software.",
     "content": "Artificial intelligence has become an integral part of modern software development. \nFrom code completion to automated testing, AI tools are helping developers work more efficiently and effectively.\n\n## Key Benefits\n\n- **Increased Productivity**: AI-powered tools can automate repetitive tasks, allowing developers to focus on more creative aspects of their work.\n- **Better Code Quality**: AI can help identify potential bugs and security vulnerabilities before they make it into production.\n- **Enhanced User Experiences**: AI can analyze user behavior and preferences to create more personalized and intuitive interfaces.\n\n## Looking Ahead\n\nAs AI continues to evolve, we can expect even more sophisticated tools and techniques to emerge.\n The future of development will likely involve a closer collaboration between human developers and AI assistants, \nwith each bringing their unique strengths to the table.\n\nRemember, AI is not here to replace developers but to augment their capabilities and help them create better software more efficiently.",
     "author": "Rushi Chaganti",
-    "authorRole": "Co Founder, Chief of Technical Operations(CTO), Araise AI.",
+    "authorRole": "Co Founder, Chief of Technical Operations(CTO), araise AI.",
     "authorImage": "/rushi.jpg?height=100&width=100",
     "tags": ["AI", "Development", "Future Tech"],
     "category": "tech"

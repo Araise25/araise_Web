@@ -1,35 +1,117 @@
 [
   {
-    "id": "arise-PM",
-    "title": "arAIse Package Manager",
-    "description": "A retro-style command-line interface",
+    "id": "arise-pm",
+    "title": "araise Package Manager",
+    "description": "A cross-platform CLI for managing and running software packages with ease.",
     "icon": "Briefcase",
-    "tags": ["powerShell", "LINUX"],
-    "githubUrl": "https://github.com/Araise25/arAIse_PM",
-
-    "lastUpdated": "2025-04-28",
-    "longDescription": "Araise Package Manager is a cross-platform tool designed to streamline the installation and management of software packages. It emphasizes simplicity, security, and community-driven contributions.",
+    "tags": ["Linux", "macOS", "CLI"],
+    "githubUrl": "https://github.com/araise25/araise_PM",
+    "lastUpdated": "2025-10-04",
+    "longDescription": "araise Package Manager is a cross-platform tool that simplifies installation, management, and execution of software packages. It supports  Linux, and macOS with verified installation scripts and package integrity checks, ensuring security and simplicity for developers and power users alike.",
     "features": [
-      "Cross-platform support for Windows, Linux, and macOS",
-      "Secure package verification and dependency checks",
-      "Extensible structure for adding and managing new packages",
-      "User-friendly interface for easy package installation and updates"
+      "Cross-platform support for Linux, and macOS",
+      "Secure installation with script verification",
+      "Built-in dependency management and signature checks",
+      "User-friendly CLI for installing, uninstalling, and running packages",
+      "Community-driven package contributions"
     ],
     "installCommands": [
       {
         "os": "windows",
-        "command": "$script = Invoke-WebRequest -UseBasicParsing -Uri \"https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1\"; $script.Content | Out-File -FilePath \"$env:TEMP\\araise_install.ps1\"; & \"$env:TEMP\\araise_install.ps1\"",
-        "description": "Install arAIse CLI on Windows"
-      },
-      {
-        "os": "mac",
-        "command": "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
-        "description": "Install arAIse CLI on macOS"
+        "command": "We do not support Windows, Please use WSL to use araise",
+        "description": "Install araise CLI on Windows using WSL"
       },
       {
         "os": "linux",
-        "command": "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
-        "description": "Install arAIse CLI on Linux"
+        "command": "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
+        "description": "Install araise CLI on Linux"
+      },
+      {
+        "os": "mac",
+        "command": "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
+        "description": "Install araise CLI on macOS"
+      }
+    ]
+  },
+  {
+    "id": "ysb",
+    "title": "YSB",
+    "description": "A Firefox extension that blocks YouTube Shorts for a distraction-free experience.",
+    "icon": "YouTube",
+    "tags": ["browser", "extension", "firefox", "focus"],
+    "githubUrl": "https://github.com/araise25/YSB",
+    "lastUpdated": "2025-10-04",
+    "longDescription": "YSB (YouTube Shorts Blocker) is a Firefox browser extension that automatically hides all YouTube Shorts from appearing in navigation, search, and recommendations. Designed to help users stay focused, it features a cyberpunk-inspired UI and a quick toggle to temporarily show Shorts for 30 seconds.",
+    "features": [
+      "Automatically hides YouTube Shorts from homepage, search, and recommendations",
+      "Toggle to temporarily allow Shorts for 30 seconds",
+      "Cyberpunk-inspired interface with minimal UI",
+      "Lightweight and privacy-friendly — no tracking or data collection",
+      "MIT Licensed open-source project"
+    ],
+    "installCommands": [
+      {
+        "os": "firefox",
+        "command": "Go to about:debugging#/runtime/this-firefox → Load Temporary Add-on → select manifest.json",
+        "description": "Install YSB manually in Firefox"
+      }
+    ]
+  },
+  {
+    "id": "wtf-tools",
+    "title": "WTF-Tools",
+    "description": "A collection of shell utilities to simplify debugging and improve developer workflow.",
+    "icon": "Bug",
+    "tags": ["shellscript", "DevTools", "debugging", "CLI"],
+    "githubUrl": "https://github.com/araise25/WTF-Tools",
+    "lastUpdated": "2025-10-04",
+    "longDescription": "WTF-Tools is a suite of shell utilities designed to boost developer productivity. It includes tools for logging, process monitoring, quick debugging, and automation. Each utility is lightweight, modular, and built for Linux and macOS terminals.",
+    "features": [
+      "Developer-friendly CLI utilities for rapid debugging",
+      "Process monitoring and system status insights",
+      "Lightweight and modular shell design",
+      "Cross-platform support for Linux and macOS",
+      "Easily integrable with araise CLI"
+    ],
+    "installCommands": [
+      {
+        "os": "linux",
+        "command": "git clone https://github.com/araise25/WTF-Tools.git && cd WTF-Tools && chmod +x install.sh && ./install.sh",
+        "description": "Install WTF-Tools on Linux"
+      },
+      {
+        "os": "mac",
+        "command": "git clone https://github.com/araise25/WTF-Tools.git && cd WTF-Tools && chmod +x install.sh && ./install.sh",
+        "description": "Install WTF-Tools on macOS"
+      }
+    ]
+  },
+  {
+    "id": "utility_kit",
+    "title": "Utility Kit",
+    "description": "A stealth browser extension that closes a tab and wipes its trace.",
+    "icon": "EyeSlash",
+    "tags": ["browser", "extension", "chrome", "firefox", "privacy"],
+    "githubUrl": "https://github.com/araise25/Utility_Kit",
+    "lastUpdated": "2025-10-04",
+    "longDescription": "Utility Kit is a privacy-focused browser extension that lets you close a tab and erase its trace — as if it never existed. It hides under a generic name for stealth, supports renaming and hotkeys, and works on Chrome, Chromium, Edge, and Firefox browsers.",
+    "features": [
+      "Close and forget: close a tab and remove its browsing history",
+      "Stealth mode: appears as 'Utility Kit' in extensions list",
+      "Renameable UI and custom icon for disguise",
+      "Hotkey support for quick close-and-erase action",
+      "Supports Chrome, Edge, and Firefox"
+    ],
+    "installCommands": [
+      {
+        "os": "chrome",
+        "command": "Go to chrome://extensions → enable Developer mode → Load unpacked → select `chrome_edition` folder",
+        "description": "Install Utility Kit for Chrome / Chromium browsers"
+      },
+      {
+        "os": "firefox",
+        "command": "Go to about:debugging#/runtime/this-firefox → Load Temporary Add-on → select manifest.json in `firefox_edition` folder",
+        "description": "Install Utility Kit for Firefox"
       }
     ]
   }

@@ -13,12 +13,12 @@ export default function TerminalPage() {
 
   useEffect(() => {
     // Load background from local storage if available
-    const savedBackground = localStorage.getItem("arAIseBackground")
+    const savedBackground = localStorage.getItem("araiseBackground")
     if (savedBackground) {
       setBackgroundImage(savedBackground)
     }
 
-    const savedOpacity = localStorage.getItem("arAIseBackgroundOpacity")
+    const savedOpacity = localStorage.getItem("araiseBackgroundOpacity")
     if (savedOpacity) {
       setBackgroundOpacity(Number.parseFloat(savedOpacity))
     }
@@ -28,8 +28,8 @@ export default function TerminalPage() {
     setBackgroundImage(image)
     setBackgroundOpacity(opacity)
     if (image) {
-      localStorage.setItem("arAIseBackground", image)
-      localStorage.setItem("arAIseBackgroundOpacity", opacity.toString())
+      localStorage.setItem("araiseBackground", image)
+      localStorage.setItem("araiseBackgroundOpacity", opacity.toString())
     }
   }
 

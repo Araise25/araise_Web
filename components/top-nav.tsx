@@ -66,7 +66,7 @@ export function TopNav() {
           <Link href="/dashboard" className="mr-6">
             <Image
               src="logo.png"
-              alt="arAIse Logo"
+              alt="araise Logo"
               width={32}
               height={32}
               className="h-8 w-auto"

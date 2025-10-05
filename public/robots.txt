@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://araise25.github.io/arAIse_Web/sitemap.xml
+Sitemap: https://araise25.github.io/araise_Web/sitemap.xml
 

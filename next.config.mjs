@@ -16,7 +16,7 @@ const nextConfig = {
       },
     ],
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/arAIse_Web' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/araise_Web' : '',
   experimental: {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,

@@ -8,9 +8,9 @@ export function WallpaperContainer() {
   const [wallpaperStyle, setWallpaperStyle] = useState<React.CSSProperties>({})
 
   useEffect(() => {
-    const wallpaperUrl = localStorage.getItem("arAIse-wallpaper-url")
-    const showWallpaper = localStorage.getItem("arAIse-show-wallpaper") === "true"
-    const opacity = localStorage.getItem("arAIse-wallpaper-opacity") || "0.7"
+    const wallpaperUrl = localStorage.getItem("araise-wallpaper-url")
+    const showWallpaper = localStorage.getItem("araise-show-wallpaper") === "true"
+    const opacity = localStorage.getItem("araise-wallpaper-opacity") || "0.7"
 
     if (showWallpaper && wallpaperUrl) {
       setWallpaperStyle({

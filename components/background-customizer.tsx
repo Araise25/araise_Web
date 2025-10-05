@@ -14,7 +14,7 @@ const MAX_FILE_SIZE = 2 * 1024 * 1024 // 2MB in bytes
 
 export function BackgroundCustomizer() {
   const [opacity, setOpacity] = useState(() => {
-    const saved = localStorage.getItem("arAIse-background-opacity")
+    const saved = localStorage.getItem("araise-background-opacity")
     return saved ? Number.parseFloat(saved) : 0.7
   })
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -40,7 +40,7 @@ export function BackgroundCustomizer() {
       const reader = new FileReader()
       reader.onload = (event) => {
         if (event.target?.result) {
-          localStorage.setItem("arAIse-background", event.target.result as string)
+          localStorage.setItem("araise-background", event.target.result as string)
           window.dispatchEvent(new Event("background-changed"))
           toast.success("Background updated successfully")
         }
@@ -56,14 +56,14 @@ export function BackgroundCustomizer() {
   const handleOpacityChange = (value: number[]) => {
     const newOpacity = value[0]
     setOpacity(newOpacity)
-    localStorage.setItem("arAIse-background-opacity", newOpacity.toString())
+    localStorage.setItem("araise-background-opacity", newOpacity.toString())
     window.dispatchEvent(new Event("background-changed"))
     toast.success("Opacity updated")
   }
 
   const removeBackground = () => {
-    localStorage.removeItem("arAIse-background")
-    localStorage.removeItem("arAIse-background-opacity")
+    localStorage.removeItem("araise-background")
+    localStorage.removeItem("araise-background-opacity")
     window.dispatchEvent(new Event("background-changed"))
     toast.success("Background removed")
   }

@@ -57,7 +57,7 @@ export default function ContactPage() {
     <div className="space-y-8">
       <div className="flex flex-col space-y-4">
         <h1 className="text-4xl font-bold tracking-tight terminal-text">Contact</h1>
-        <p className="text-muted-foreground">Get in touch with the arAIse team</p>
+        <p className="text-muted-foreground">Get in touch with the araise team</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -219,7 +219,7 @@ export default function ContactPage() {
                       href={`mailto:${contactInfo.email}`}
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      araise.solutions@gmail.com
+                      araise.help@gmail.com
                     </a>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      github.com/arAIse
+                      github.com/araise
                     </a>
                   </div>
                 </div>
@@ -249,17 +249,12 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
-                      @arAIse_app
+                      @araiseAI
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-primary/10">
-                <h3 className="text-sm font-medium text-primary mb-2">Office Hours</h3>
-                <p className="text-sm text-muted-foreground">{contactInfo.officeHours}</p>
-                <p className="text-sm text-muted-foreground">{contactInfo.responseTime}</p>
-              </div>
             </CardContent>
             <CardFooter className="border-t border-primary/10 pt-4">
               <div className="w-full text-center">
@@ -297,13 +292,13 @@ const faqs = [
     answer: "You can report bugs by creating an issue on our GitHub repository or by contacting us directly via email.",
   },
   {
-    question: "Is arAIse open source?",
+    question: "Is araise open source?",
     answer:
-      "Yes, arAIse is fully open source under the MIT license. You can find the source code on our GitHub repository.",
+      "Yes, araise is fully open source under the MIT license. You can find the source code on our GitHub repository.",
   },
   {
     question: "How can I contribute to the project?",
-    answer: "Check out our Contribute page for detailed information on how to contribute to arAIse.",
+    answer: "Check out our Contribute page for detailed information on how to contribute to araise.",
   },
   {
     question: "Are there any system requirements?",

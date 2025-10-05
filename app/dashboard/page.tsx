@@ -47,21 +47,21 @@ export default function DashboardPage() {
       id: "windows",
       os: "Windows",
       command:
-        '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
+        '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/araise25/araise_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
       icon: Shield,
     },
     {
       id: "macos",
       os: "macOS",
       command:
-        "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+        "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
       icon: Shield,
     },
     {
       id: "linux",
       os: "Linux",
       command:
-        "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+        "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
       icon: Shield,
     },
   ];
@@ -73,7 +73,7 @@ export default function DashboardPage() {
           Dashboard
         </h1>
         <p className="text-muted-foreground">
-          Welcome to arAIse. Select a section to explore.
+          Welcome to araise. Select a section to explore.
         </p>
       </div>
 
@@ -216,19 +216,19 @@ const sections = [
   },
   {
     title: "Contribute",
-    description: "Learn how to contribute to arAIse",
+    description: "Learn how to contribute to araise",
     icon: ArrowRight,
     href: "/dashboard/contribute",
   },
   {
     title: "Contact",
-    description: "Get in touch with the arAIse team",
+    description: "Get in touch with the araise team",
     icon: Mail,
     href: "/dashboard/contact",
   },
   {
     title: "Team",
-    description: "Meet the team behind arAIse",
+    description: "Meet the team behind araise",
     icon: Users,
     href: "/dashboard/team",
   },

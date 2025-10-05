@@ -1,7 +1,7 @@
 {
-  "email": "araise.solutions@gmail.com",
-  "github": "https://github.com/arAIse25",
-  "twitter": "https://x.com/AraiseAi",
+  "email": "araise.help@gmail.com",
+  "github": "https://github.com/araise25",
+  "twitter": "https://x.com/araiseAi",
   "officeHours": "Monday - Friday: 9:00 AM - 5:00 PM (UTC)",
   "responseTime": "We typically respond to emails within 24 hours during business days.",
   "urgentNote": "For urgent matters, please contact us directly via email.",
@@ -11,12 +11,12 @@
       "answer": "You can report bugs by creating an issue on our GitHub repository or by contacting us directly via email."
     },
     {
-      "question": "Is arAIse open source?",
-      "answer": "Yes, arAIse is fully open source under the MIT license. You can find the source code on our GitHub repository."
+      "question": "Is araise open source?",
+      "answer": "Yes, araise is fully open source under the MIT license. You can find the source code on our GitHub repository."
     },
     {
       "question": "How can I contribute to the project?",
-      "answer": "Check out our Contribute page for detailed information on how to contribute to arAIse."
+      "answer": "Check out our Contribute page for detailed information on how to contribute to araise."
     },
     {
       "question": "Are there any system requirements?",

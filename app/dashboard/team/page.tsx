@@ -18,7 +18,7 @@ export default function TeamPage() {
 
   // Helper function to get the correct image path
   const getImagePath = (avatar: string) => {
-    const basePath = process.env.NODE_ENV === 'production' ? '/arAIse_Web' : ''
+    const basePath = process.env.NODE_ENV === 'production' ? '/araise_Web' : ''
     return `${basePath}/team/${avatar}`
   }
 
@@ -26,7 +26,7 @@ export default function TeamPage() {
     <div className="space-y-8">
       <div className="flex flex-col space-y-4">
         <h1 className="text-4xl font-bold tracking-tight terminal-text">Team</h1>
-        <p className="text-muted-foreground">Meet the team behind arAIse</p>
+        <p className="text-muted-foreground">Meet the team behind araise</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

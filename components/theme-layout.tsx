@@ -101,7 +101,7 @@ export function ThemeLayout({ children }: { children: React.ReactNode }) {
   const [currentTheme, setCurrentTheme] = useState<string>("default")
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("arAIse-theme")
+    const savedTheme = localStorage.getItem("araise-theme")
     if (savedTheme) {
       setCurrentTheme(savedTheme)
       applyTheme(savedTheme)
@@ -114,7 +114,7 @@ export function ThemeLayout({ children }: { children: React.ReactNode }) {
       Object.entries(theme.colors).forEach(([key, value]) => {
         document.documentElement.style.setProperty(`--${key}`, value)
       })
-      localStorage.setItem("arAIse-theme", themeId)
+      localStorage.setItem("araise-theme", themeId)
       setCurrentTheme(themeId)
     }
   }

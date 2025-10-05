@@ -23,14 +23,14 @@ export default function DashboardLayout({
     setMounted(true)
 
     // Load background from local storage if available
-    const savedBackground = localStorage.getItem("arAIseBackground")
-    const showWallpaper = localStorage.getItem("arAIse-show-wallpaper") !== "false"
+    const savedBackground = localStorage.getItem("araiseBackground")
+    const showWallpaper = localStorage.getItem("araise-show-wallpaper") !== "false"
 
     if (savedBackground && showWallpaper) {
       setBackgroundImage(savedBackground)
     }
 
-    const savedOpacity = localStorage.getItem("arAIseBackgroundOpacity")
+    const savedOpacity = localStorage.getItem("araiseBackgroundOpacity")
     if (savedOpacity) {
       setBackgroundOpacity(Number.parseFloat(savedOpacity))
     }

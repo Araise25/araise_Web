@@ -1,6 +1,6 @@
-# arAIse Web
+# araise Web
 
-Welcome to arAIse - Bringing AI closer through open source!
+Welcome to araise - Bringing AI closer through open source!
 
 ## Our Mission
 
@@ -18,11 +18,11 @@ We believe in the power of open source to democratize AI technology. Our mission
 ## Coming Soon
 
 🚀 **Package Manager (Coming Soon!)**
-We're excited to announce our upcoming package manager that will make installing and managing arAIse projects easier than ever. Stay tuned for the release in the coming days!
+We're excited to announce our upcoming package manager that will make installing and managing araise projects easier than ever. Stay tuned for the release in the coming days!
 
 ## Contributing
 
-We welcome contributions from the community! Check out our [contribution guidelines](https://github.com/arAIse/arAIse_Web/blob/main/CONTRIBUTING.md) to get started.
+We welcome contributions from the community! Check out our [contribution guidelines](https://github.com/araise/araise_Web/blob/main/CONTRIBUTING.md) to get started.
 
 ## License
 
@@ -31,7 +31,7 @@ This project is open-sourced under the MIT License. See the [LICENSE](LICENSE) f
 ## Contact
 
 - Email: araise.solutions@gmail.com
-- GitHub: https://github.com/Araise25
-- Twitter: https://x.com/AraiseAi
+- GitHub: https://github.com/araise25
+- Twitter: https://x.com/araiseAi
 
 Join us in our mission to make AI more accessible through open source!

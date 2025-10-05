@@ -7,8 +7,8 @@ import { useEffect } from "react"
 export function BackgroundProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const updateBackground = () => {
-      const background = localStorage.getItem("arAIse-background")
-      const opacity = localStorage.getItem("arAIse-background-opacity") || "0.7"
+      const background = localStorage.getItem("araise-background")
+      const opacity = localStorage.getItem("araise-background-opacity") || "0.7"
 
       if (background) {
         document.body.style.backgroundImage = `url(${background})`

@@ -126,12 +126,12 @@ export function AppSidebar() {
   const [currentTheme, setCurrentTheme] = useState<string>("default");
 
   useEffect(() => {
-    const savedPosition = localStorage.getItem("arAIse-sidebar-position");
+    const savedPosition = localStorage.getItem("araise-sidebar-position");
     if (savedPosition === "left" || savedPosition === "right") {
       setSidebarPosition(savedPosition);
     }
 
-    const savedTheme = localStorage.getItem("arAIse-theme");
+    const savedTheme = localStorage.getItem("araise-theme");
     if (savedTheme) {
       setCurrentTheme(savedTheme);
       applyTheme(savedTheme);
@@ -144,7 +144,7 @@ export function AppSidebar() {
       Object.entries(theme.colors).forEach(([key, value]) => {
         document.documentElement.style.setProperty(`--${key}`, value);
       });
-      localStorage.setItem("arAIse-theme", themeId);
+      localStorage.setItem("araise-theme", themeId);
       setCurrentTheme(themeId);
     }
   };
@@ -160,13 +160,13 @@ export function AppSidebar() {
           <Link href="/dashboard" className="flex items-center space-x-2">
             <Image
               src="sidebar_logo.svg"
-              alt="arAIse Logo"
+              alt="araise Logo"
               width={128}
               height={128}
               className="h-8 w-auto"
             />
             <span className="text-2xl font-bold tracking-tight text-primary">
-              {localStorage.getItem("arAIse-username") || "arAIse"}
+              {localStorage.getItem("araise-username") || "araise"}
             </span>
           </Link>
           <SidebarTrigger />

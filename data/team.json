@@ -5,56 +5,28 @@
     "role": "Developer",
     "avatar": "rushi.jpg",
     "bio": "Passionate about AI research and finding ways to make cutting-edge models more efficient and ethical.",
-    "skills": ["Python", "React", "Next.js", "TypeScript"],
+    "skills": ["Python", "AI", "Machine Learning", "Linux"],
     "projects": [
       {
-        "name": "arAIse CLI",
+        "name": "araise CLI",
         "description": "Lead developer for the command-line interface",
-        "link": "https://github.com/arAIse/arAIse-cli"
+        "link": "https://github.com/araise/araise-cli"
       },
       {
-        "name": "arAIse Web",
+        "name": "araise Web",
         "description": "Architect for the web interface",
-        "link": "https://github.com/arAIse/arAIse-web"
+        "link": "https://github.com/araise/araise-web"
       }
     ],
     "links": {
       "github": "https://github.com/RushiChaganti",
       "x": "https://x.com/Rushichaganti",
       "linkedin": "https://www.linkedin.com/in/rushichaganti/",
-      "website": "https://rushichaganti.com"
-    },
-    "email": "rushi@araise.ai"
+      "website": "https://rushichaganti.github.io/RushiChaganti/"
+    }
   },
   {
     "id": 2,
-    "name": "Ravi Shankar Krishna",
-    "role": "Mentor, Developer",
-    "avatar": "ravishankar.jpg",
-    "bio": "A guy who loves to code and build cool stuff with AI. Also loves to play video games",
-    "skills": ["Networking", "Computer Science", "Python", "Cyber Security"],
-    "projects": [
-      {
-        "name": "arAIse Design System",
-        "description": "Created the design system and component library",
-        "link": "https://design.araise.io"
-      },
-      {
-        "name": "arAIse Web",
-        "description": "Lead designer for the web interface",
-        "link": "https://github.com/arAIse/arAIse-web"
-      }
-    ],
-    "links": {
-      "github": "https://github.com/krishna1811",
-      "x": "https://x.com/BeRavi_98?t=Yu92ywqPBg2taAH4l3YrKw&s=08",
-      "linkedin": "https://www.linkedin.com/in/ravi-shankar-krishna?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      "website": "https://ravishankar.dev"
-    },
-    "email": "ravi@araise.ai"
-  },
-  {
-    "id": 3,
     "name": "Dheeraj Chinni",
     "role": "Developer",
     "avatar": "dheeraj.jpg",
@@ -64,7 +36,7 @@
       {
         "name": "Glance",
         "description": "A browser extension to provide summaries and explanations.",
-        "link": "https://github.com/arAIse/arAIse-games"
+        "link": "https://github.com/araise/araise-games"
       },
       {
         "name": "Automatic Image Organisation System",
@@ -75,36 +47,65 @@
     "links": {
       "github": "https://github.com/sairajdheeraj",
       "x": "https://x.com/chinni_dheeraj",
-      "linkedin": "https://www.linkedin.com/in/chinnisairajdheeraj",
-      "website": "https://dheerajchinni.com"
-    },
-    "email": "dheeraj@araise.ai"
+      "linkedin": "https://www.linkedin.com/in/chinnisairajdheeraj"    }
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Shiva Karthik Gandikota",
     "role": "Developer",
     "avatar": "shivakarthik.jpg",
     "bio": "CS Student, Specialised in building practical applications.",
     "skills": ["Python", "Docker", "AWS", "API Design"],
-    "projects": [
-      {
-        "name": "arAIse API",
-        "description": "Lead developer for the backend API",
-        "link": "https://github.com/arAIse/arAIse-api"
-      },
-      {
-        "name": "arAIse Database",
-        "description": "Designed and implemented the database schema",
-        "link": "https://github.com/arAIse/arAIse-db"
-      }
-    ],
+    "projects": [],
     "links": {
       "github": "https://github.com/karthik6214",
       "x": "https://x.com/ShivaKarthik_08?t=35De-KccgjG7D8PPj-OZqg&s=08",
-      "linkedin": "https://www.linkedin.com/in/gandikota-shiva-karthik-0ab237231/",
-      "website": "https://shivakarthik.dev"
+      "linkedin": "https://www.linkedin.com/in/gandikota-shiva-karthik-0ab237231/"    }
+  },
+ {
+  "id": 5,
+  "name": "Rithish Sheru",
+  "role": "Developer",
+  "avatar": "rithish.jpeg",
+  "bio": "Passionate about machine learning, and building full-stack applications. ",
+  "skills": ["Python", "Machine Learning", "SQL", "REST APIs", "AI Integration", "TypeScript"],
+  "projects": [
+    {
+      "name": "Comment Sensei",
+      "description": "Comment Sensei is a powerful web tool that lets you analyze YouTube video comments using sentiment analysis to help content creators improve their videos.",
+      "link": "https://github.com/rithishsheru14/commentsensai"
     },
-    "email": "shiva@araise.ai"
+    {
+      "name": "GenAI",
+      "description": "GENAI is a creative AI platform that allows users to generate images, literature, and music simply by entering a prompt.",
+      "link": "https://github.com/rithishsheru14/GENAI"
+    },
+    {
+      "name": "CodeQuest",
+      "description": "An Interactive App to Learn Programming.",
+      "link": "https://github.com/rithishsheru14/CodeQuest"
+    }
+
+  ],
+  "links": {
+    "github": "https://github.com/rithishsheru14",
+    "x": "https://x.com/SheruRithish",
+    "linkedin": "https://www.linkedin.com/in/rithish-sheru/"
+  },
+  "email": "sherurithish001@gmail.com"
+},
+  {
+    "id": 5,
+    "name": "Ravi Shankar Krishna",
+    "role": "Mentor, Developer",
+    "avatar": "ravishankar.jpg",
+    "bio": "A guy who loves to code and build cool stuff with AI. Also loves to play video games",
+    "skills": ["Networking", "Computer Science", "Python", "Cyber Security"],
+    "projects": [  ],
+    "links": {
+      "github": "https://github.com/krishna1811",
+      "x": "https://x.com/BeRavi_98?t=Yu92ywqPBg2taAH4l3YrKw&s=08",
+      "linkedin": "https://www.linkedin.com/in/ravi-shankar-krishna?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    }
   }
 ]

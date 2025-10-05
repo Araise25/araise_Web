@@ -13,14 +13,14 @@ export default function ProjectsPage() {
   const [currentPlatform, setCurrentPlatform] = useState<string | null>(null)
   const projects = getProjects()
 
-  useEffect(() => {
-    // Detect OS
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    if (userAgent.indexOf("win") !== -1) setCurrentPlatform("windows");
-    else if (userAgent.indexOf("mac") !== -1) setCurrentPlatform("mac");
-    else if (userAgent.indexOf("linux") !== -1) setCurrentPlatform("linux");
-    else setCurrentPlatform(null);
-  }, []);
+  // useEffect(() => {
+  //   // Detect OS
+  //   const userAgent = window.navigator.userAgent.toLowerCase();
+  //   if (userAgent.indexOf("win") !== -1) setCurrentPlatform("windows");
+  //   else if (userAgent.indexOf("mac") !== -1) setCurrentPlatform("mac");
+  //   else if (userAgent.indexOf("linux") !== -1) setCurrentPlatform("linux");
+  //   else setCurrentPlatform(null);
+  // }, []);
 
   const copyToClipboard = (command: string, id: string) => {
     navigator.clipboard.writeText(command)
@@ -69,44 +69,43 @@ export default function ProjectsPage() {
                 </div>
 
                 {project.installCommands && project.installCommands.length > 0 ? (
-                  currentPlatform && (
-                    <div className="mt-4 space-y-3">
-                      <h4 className="text-sm font-semibold text-primary">Installation Command:</h4>
-                      {project.installCommands
-                        .filter(cmd => cmd.os.toLowerCase() === currentPlatform)
-                        .map((cmd, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center justify-between bg-black/40 p-3 rounded-md border border-primary/20"
+                  <div className="mt-4 space-y-3">
+                    <h4 className="text-sm font-semibold text-primary">Installation Commands:</h4>
+                    {project.installCommands.map((cmd, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between bg-black/40 p-3 rounded-md border border-primary/20"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <code className="font-mono text-primary text-sm">
+                            {cmd.command}
+                          </code>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          {cmd.os && (
+                            <Badge variant="outline" className="border-primary/30">
+                              {cmd.os}
+                            </Badge>
+                          )}
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-primary hover:text-primary/80"
+                            onClick={() => copyToClipboard(cmd.command, `${project.id}-${cmd.os || idx}`)}
                           >
-                            <div className="flex items-center space-x-2">
-                              <code className="font-mono text-primary text-sm">
-                                {cmd.command}
-                              </code>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Badge variant="outline" className="border-primary/30">
-                                {cmd.os}
-                              </Badge>
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                className="h-8 w-8 text-primary hover:text-primary/80"
-                                onClick={() => copyToClipboard(cmd.command, `${project.id}-${cmd.os}`)}
-                              >
-                                {copiedCommand === `${project.id}-${cmd.os}` ? (
-                                  <Check className="h-4 w-4" />
-                                ) : (
-                                  <Copy className="h-4 w-4" />
-                                )}
-                                <span className="sr-only">Copy command</span>
-                              </Button>
-                            </div>
-                          </div>
-                      ))}
-                    </div>
-                  )
+                            {copiedCommand === `${project.id}-${cmd.os || idx}` ? (
+                              <Check className="h-4 w-4" />
+                            ) : (
+                              <Copy className="h-4 w-4" />
+                            )}
+                            <span className="sr-only">Copy command</span>
+                          </Button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 ) : (
+
                   <div className="mt-4 p-3 rounded-md bg-black/40 border border-primary/20">
                     <p className="text-sm text-muted-foreground">No installation commands available for this project.</p>
                   </div>

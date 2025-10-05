@@ -17,16 +17,16 @@ export const themes = [
 ]
 
 export const initializeTheme = () => {
-  const savedTheme = localStorage.getItem("arAIse-theme") || "dark"
+  const savedTheme = localStorage.getItem("araise-theme") || "dark"
   applyTheme(savedTheme)
 }
 
 export const applyTheme = (themeName: string) => {
-  localStorage.setItem("arAIse-theme", themeName)
+  localStorage.setItem("araise-theme", themeName)
   document.documentElement.className = themeName
 }
 
 export const getCurrentTheme = () => {
-  return localStorage.getItem("arAIse-theme") || "dark"
+  return localStorage.getItem("araise-theme") || "dark"
 }
 

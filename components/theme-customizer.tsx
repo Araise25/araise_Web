@@ -14,9 +14,9 @@ export function ThemeCustomizer() {
   const { theme, setTheme } = useTheme()
   const [wallpaperOpacity, setWallpaperOpacity] = React.useState(0.5)
   const [showWallpaper, setShowWallpaper] = React.useState(true)
-  const [userName, setUserName] = React.useState(() => localStorage.getItem("arAIse-username") || "")
+  const [userName, setUserName] = React.useState(() => localStorage.getItem("araise-username") || "")
   const [backgroundColor, setBackgroundColor] = React.useState(
-    () => localStorage.getItem("arAIse-background-color") || "neon-green",
+    () => localStorage.getItem("araise-background-color") || "neon-green",
   )
 
   const backgroundColors = {
@@ -32,13 +32,13 @@ export function ThemeCustomizer() {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value
     setUserName(newName)
-    localStorage.setItem("arAIse-username", newName)
+    localStorage.setItem("araise-username", newName)
     toast.success("Name updated")
   }
 
   const handleBackgroundColorChange = (color: string) => {
     setBackgroundColor(color)
-    localStorage.setItem("arAIse-background-color", color)
+    localStorage.setItem("araise-background-color", color)
     document.documentElement.style.setProperty("--background", getBackgroundColorValue(color))
     toast.success("Background color updated")
   }

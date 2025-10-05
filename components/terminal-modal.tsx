@@ -87,7 +87,7 @@ const CommandLine = ({ currentCommand, setCurrentCommand, executeCommand, classN
 
   return (
     <div className="flex items-center mt-4 cursor-text" onClick={handleClick}>
-      <span className="text-blue-400 mr-2">guest@arAIse:~$</span>
+      <span className="text-blue-400 mr-2">guest@araise:~$</span>
       <input
         ref={inputRef}
         type="text"
@@ -288,7 +288,7 @@ const ContributeSection = () => {
       <div className="text-yellow-400 text-lg font-bold mb-2">Contribution Guidelines</div>
 
       <div className="space-y-2">
-        <p>We welcome contributions to the arAIse project! Here&apos;s how you can help:</p>
+        <p>We welcome contributions to the araise project! Here&apos;s how you can help:</p>
 
         <div className="bg-gray-800/50 p-4 rounded space-y-3 mt-4">
           <div className="flex items-start space-x-3">
@@ -352,7 +352,7 @@ const ContributeSection = () => {
             We follow a code of conduct to ensure a welcoming and inclusive environment for all contributors. By
             participating, you agree to uphold these standards.
           </p>
-          <p className="mt-2">Thank you for helping make arAIse better!</p>
+          <p className="mt-2">Thank you for helping make araise better!</p>
         </div>
       </div>
     </div>
@@ -389,7 +389,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="text-blue-400 hover:underline flex items-center"
             >
-              @arAIse_app
+              @araise_app
               <ExternalLink className="w-3 h-3 ml-1" />
             </a>
           </div>
@@ -688,17 +688,17 @@ const TerminalComponent = ({ setShowUhOh, saveBackground }: TerminalProps) => {
           {
             id: "windows",
             os: "Windows",
-            command: '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/Araise25/arAIse_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
+            command: '$script = Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/araise25/araise_PM/main/windows/install.ps1"; $script.Content | Out-File -FilePath "$env:TEMP\\araise_install.ps1"; & "$env:TEMP\\araise_install.ps1"',
           },
           {
             id: "mac",
             os: "macOS",
-            command: "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+            command: "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
           },
           {
             id: "linux",
             os: "Linux",
-            command: "curl -fsSL https://raw.githubusercontent.com/Araise25/arAIse_PM/main/unix/install.sh | bash",
+            command: "curl -fsSL https://raw.githubusercontent.com/araise25/araise_PM/main/unix/install.sh | bash",
           },
         ];
 
@@ -847,14 +847,14 @@ const TerminalComponent = ({ setShowUhOh, saveBackground }: TerminalProps) => {
               </svg>
             </div>
           </div>
-          <div className="text-xs text-gray-400">arAIse Terminal</div>
+          <div className="text-xs text-gray-400">araise Terminal</div>
         </div>
 
         <div className="space-y-2">
           {commandHistory.map((item, index) => (
             <div key={index} className="space-y-1">
               <div className="flex">
-                <span className="text-blue-400 mr-2">guest@arAIse:~$</span>
+                <span className="text-blue-400 mr-2">guest@araise:~$</span>
                 <span>{item.command}</span>
               </div>
               <CommandOutput>{item.output}</CommandOutput>
@@ -887,12 +887,12 @@ export default function Home() {
     setCurrentTheme(getCurrentTheme())
 
     // Load background from local storage if available
-    const savedBackground = localStorage.getItem("arAIseBackground")
+    const savedBackground = localStorage.getItem("araiseBackground")
     if (savedBackground) {
       setBackgroundImage(savedBackground)
     }
 
-    const savedOpacity = localStorage.getItem("arAIseBackgroundOpacity")
+    const savedOpacity = localStorage.getItem("araiseBackgroundOpacity")
     if (savedOpacity) {
       setBackgroundOpacity(Number.parseFloat(savedOpacity))
     }
@@ -915,8 +915,8 @@ export default function Home() {
   const saveBackground = (image: string, opacity: number) => {
     setBackgroundImage(image)
     setBackgroundOpacity(opacity)
-    localStorage.setItem("arAIseBackground", image)
-    localStorage.setItem("arAIseBackgroundOpacity", opacity.toString())
+    localStorage.setItem("araiseBackground", image)
+    localStorage.setItem("araiseBackgroundOpacity", opacity.toString())
   }
 
   if (showUhOh) {

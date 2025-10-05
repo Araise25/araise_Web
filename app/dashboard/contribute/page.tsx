@@ -10,7 +10,7 @@ export default function ContributePage() {
     <div className="space-y-8">
       <div className="flex flex-col space-y-4">
         <h1 className="text-4xl font-bold tracking-tight terminal-text">Contribute</h1>
-        <p className="text-muted-foreground">Learn how to contribute to the arAIse project</p>
+        <p className="text-muted-foreground">Learn how to contribute to the araise project</p>
       </div>
 
       <Alert className="border-primary/30 bg-primary/5">
@@ -47,7 +47,7 @@ export default function ContributePage() {
                 <Github className="mr-2 h-5 w-5" />
                 Contribution Guidelines
               </CardTitle>
-              <CardDescription>Follow these steps to contribute to the arAIse project</CardDescription>
+              <CardDescription>Follow these steps to contribute to the araise project</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4">
@@ -62,7 +62,7 @@ export default function ContributePage() {
                       make changes.
                     </p>
                     <Button variant="outline" size="sm" className="mt-2 border-primary/30 hover:bg-primary/10" asChild>
-                      <Link href="https://github.com/arAIse25" target="_blank">
+                      <Link href="https://github.com/araise25" target="_blank">
                         <Github className="mr-1 h-4 w-4" />
                         Fork on GitHub
                       </Link>
@@ -80,7 +80,7 @@ export default function ContributePage() {
                       Clone your forked repository to your local machine.
                     </p>
                     <div className="font-mono text-xs text-muted-foreground bg-black p-3 rounded-md border border-primary/10 mt-2">
-                      <pre>git clone https://github.com/YOUR-USERNAME/arAIse25.git</pre>
+                      <pre>git clone https://github.com/YOUR-USERNAME/araise25.git</pre>
                     </div>
                   </div>
                 </div>
@@ -147,10 +147,10 @@ export default function ContributePage() {
                   <div>
                     <h3 className="text-lg font-medium text-primary">Submit a Pull Request</h3>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Create a pull request from your branch to the main arAIse repository.
+                      Create a pull request from your branch to the main araise repository.
                     </p>
                     <Button variant="outline" size="sm" className="mt-2 border-primary/30 hover:bg-primary/10" asChild>
-                      <Link href="https://github.com/arAIse/arAIse/pulls" target="_blank">
+                      <Link href="https://github.com/araise/araise/pulls" target="_blank">
                         <GitPullRequest className="mr-1 h-4 w-4" />
                         Create Pull Request
                       </Link>
@@ -272,7 +272,7 @@ Closes #123`}</pre>
                 </p>
 
                 <Button variant="outline" className="border-primary/30 hover:bg-primary/10" asChild>
-                  <Link href="https://github.com/arAIse/arAIse/issues/new" target="_blank">
+                  <Link href="https://github.com/araise/araise/issues/new" target="_blank">
                     <Bug className="mr-1 h-4 w-4" />
                     Create New Issue
                   </Link>
@@ -456,7 +456,7 @@ const firstIssues = [
     description: "Implement a toggle switch in the settings menu to switch between light and dark mode.",
     type: "enhancement",
     number: 42,
-    url: "https://github.com/arAIse/arAIse/issues/42",
+    url: "https://github.com/araise/araise/issues/42",
   },
   {
     id: 2,
@@ -464,7 +464,7 @@ const firstIssues = [
     description: "There's a bug in the Snake game where collisions with the wall aren't always detected correctly.",
     type: "bug",
     number: 57,
-    url: "https://github.com/arAIse/arAIse/issues/57",
+    url: "https://github.com/araise/araise/issues/57",
   },
   {
     id: 3,
@@ -472,7 +472,7 @@ const firstIssues = [
     description: "Add more detailed help text for each terminal command.",
     type: "documentation",
     number: 63,
-    url: "https://github.com/arAIse/arAIse/issues/63",
+    url: "https://github.com/araise/araise/issues/63",
   },
   {
     id: 4,
@@ -480,7 +480,7 @@ const firstIssues = [
     description: "Implement keyboard shortcuts for navigating between sections and accessing features.",
     type: "feature",
     number: 78,
-    url: "https://github.com/arAIse/arAIse/issues/78",
+    url: "https://github.com/araise/araise/issues/78",
   },
 ]
 
@@ -488,14 +488,14 @@ const resources = [
   {
     id: 1,
     title: "Developer Documentation",
-    description: "Comprehensive guide to the arAIse codebase and architecture.",
+    description: "Comprehensive guide to the araise codebase and architecture.",
     icon: FileCode,
     url: "https://docs.araise.io/dev",
   },
   {
     id: 2,
     title: "API Reference",
-    description: "Documentation for the arAIse API endpoints and data models.",
+    description: "Documentation for the araise API endpoints and data models.",
     icon: Code,
     url: "https://docs.araise.io/api",
   },
@@ -509,9 +509,9 @@ const resources = [
   {
     id: 4,
     title: "GitHub Repository",
-    description: "Main repository for the arAIse project.",
+    description: "Main repository for the araise project.",
     icon: Github,
-    url: "https://github.com/arAIse/arAIse",
+    url: "https://github.com/araise/araise",
   },
 ]
 

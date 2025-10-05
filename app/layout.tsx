@@ -12,7 +12,7 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "arAIse | Bringing AI closer",
+  title: "araise | Bringing AI closer",
   description:
     "A retro-style CLI & Web interactive experience inspired by Solo Leveling",
   icons: {

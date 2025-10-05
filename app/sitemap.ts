@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 // Base URL of your website
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://araise25.github.io/arAIse_Web/"
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://araise25.github.io/araise_Web/"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get the current date for lastModified
